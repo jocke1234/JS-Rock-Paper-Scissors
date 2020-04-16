@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    const rock = 0;
+    const paper = 1;
+    const scissors = 2;
+
+    function computerPlay() {
+      random = Math.floor(Math.random() * 3) + 1;
+      return random;
+    }
+    
+    let player = 0
+    let computer = 0
+    let draws = 0
+    
+    function playRound(playerSelection, computerSelection) {
+      playerSelection = prompt("Rock, Paper, Scissors?").toLowerCase()
+
+
+      //Rock possibilities
+	    if (playerSelection == "rock") {
+      computerSelection = computerPlay()  
+      if (computerSelection == 1) { 
+        console.log("Computer chooses Paper!")
+        console.log("You Lose! Paper beats Rock")
+        ++computer
+      }
+      else if (computerSelection == 3) {
+        console.log("Computer chooses Rock!")
+        console.log("It's a draw!")
+        ++draws
+      }
+
+      else if (computerSelection == 2) {
+        console.log("Computer chooses Scissors!")
+        console.log("You win! Rock beats scissors")
+        ++player
+      }
+    }
+
+    //Paper possibilities
+    if (playerSelection == "paper") {
+      computerSelection = computerPlay()
+      if (computerSelection == 1) {
+        console.log("Computer chooses Paper!")
+        console.log("It's a draw!")
+        ++draws
+      }
+      else if (computerSelection == 3) {
+        console.log("Computer chooses Rock!")
+        console.log("You win! Paper beats rock")
+        ++player
+      }
+
+      else if (computerSelection == 2) {
+        console.log("Computer chooses Scissors!")
+        console.log("You Lose! Scissors beat paper")
+        ++computer
+      }
+    }
+      
+      //Scissors possibilities
+      if (playerSelection == "scissors") {
+        computerSelection = computerPlay()
+        if (computerSelection == 1) {
+          console.log("Computer chooses Paper!")
+          console.log("You win! Scissors beat paper")
+          ++player
+          console.log(player)
+      }
+        else if (computerSelection == 3) {
+          console.log("Computer chooses Rock!")
+          console.log ("You Lose! Rock beats scissors")
+          ++computer
+          console.log(player)
+      }
+
+        else if (computerSelection == 2) {
+          console.log("Computer chooses Scissors!")
+          console.log("It's a draw!") 
+          ++draws
+      }
+    }
+    console.log("SCORE: Player: " + player + " Computer: " + computer + " Draws: " + draws)
+    console.log("")
+}
+      
+
+  function game(numberofgames) {
+    numberofgames = prompt("How many games?")
+    for (i = 0; i<numberofgames; i++) {
+      console.log("Game " + (i +1) + " - Start!")
+      playRound()
+
+    }
+  }
+  </script>
+</body>
+</html>
